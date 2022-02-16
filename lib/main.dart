@@ -5,8 +5,6 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:sono/pages/model.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-
-
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
