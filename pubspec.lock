@@ -106,13 +106,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.4"
-  firebase_core_desktop:
-    dependency: "direct main"
-    description:
-      name: firebase_core_desktop
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1-dev.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -156,13 +149,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutterfire_core_dart:
-    dependency: transitive
-    description:
-      name: flutterfire_core_dart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1-dev.0"
   image:
     dependency: transitive
     description:

@@ -120,21 +120,21 @@ void escolherOpcao(context, String editarID) {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ScreenEquipamento(editarID))
                   );
-                  Navigator.of(context).pop();
+                  //Navigator.of(context).pop();
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   //mainAxisSize: MainAxisSize.max,
-                  children: [
-                    const Icon(
+                  children: const [
+                    Icon(
                       Icons.edit,
                       color: Colors.black,
                     ),
-                    const Text('Editar'),
+                    Text('Editar'),
                   ],
                 ),
               ),
-              Divider(),
+              const Divider(),
               InkWell(
                 onTap: () {
                   FirebaseFirestore.instance.collection('Equipamento').doc(editarID).delete();
@@ -143,16 +143,16 @@ void escolherOpcao(context, String editarID) {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   //mainAxisSize: MainAxisSize.max,
-                  children: [
-                    const Icon(
+                  children: const [
+                    Icon(
                       Icons.highlight_remove,
                       color: Colors.black,
                     ),
-                    const Text('Remover'),
+                    Text('Remover'),
                   ],
                 ),
               ),
-              Divider(),
+              const Divider(),
               InkWell(
                 onTap: () {
                   Navigator.of(context).pop();
@@ -160,12 +160,12 @@ void escolherOpcao(context, String editarID) {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   //mainAxisSize: MainAxisSize.max,
-                  children: [
-                    const Icon(
+                  children: const [
+                    Icon(
                       Icons.cancel,
                       color: Colors.black,
                     ),
-                    const Text('Cancelar'),
+                    Text('Cancelar'),
                   ],
                 ),
               ),
