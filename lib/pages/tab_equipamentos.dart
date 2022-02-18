@@ -4,8 +4,7 @@ import 'package:sono/pages/model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sono/pages/screen_equipamentos.dart';
 
-bool Inicializa = false;
-
+bool inicializa = false;
 
 
 class Equipamento extends StatefulWidget {
@@ -19,14 +18,14 @@ class _EquipamentoState extends State<Equipamento> {
   @override
   void initState() {
     super.initState();
-    Inicializa = true;
+    inicializa = true;
   }
 
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<UserModel>(builder: (context, child, model) {
-      Inicializa
-          ? {model.Equipamento = 'Equipamento', Inicializa = false}
+      inicializa
+          ? {model.Equipamento = 'Equipamento', inicializa = false}
           : null;
       return StreamBuilder<QuerySnapshot>(
         stream:
@@ -54,7 +53,7 @@ class _EquipamentoState extends State<Equipamento> {
                 children: snapshot.data!.docs.reversed
                     .map((DocumentSnapshot document) {
                   Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
-                  return FazGrid(
+                  return fazGrid(
                       data['Foto'] ?? model.semimagem,
                       data['Nome'] ?? 'sem nome',
                       document.id
@@ -67,11 +66,10 @@ class _EquipamentoState extends State<Equipamento> {
     });
   }
 
-  Widget FazGrid(String imagem, String texto, String id) {
+  Widget fazGrid(String imagem, String texto, String id) {
     return ScopedModelDescendant<UserModel>(builder: (context, child, model){
     return InkWell(
       onLongPress: (){
-        //FirebaseFirestore.instance.collection('Equipamento').doc(id).delete();
         escolherOpcao(context, id);
       },
       onTap: (){
@@ -117,14 +115,13 @@ void escolherOpcao(context, String editarID) {
             children: [
               InkWell(
                 onTap: () {
+                  Navigator.of(context).pop();
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ScreenEquipamento(editarID))
                   );
-                  //Navigator.of(context).pop();
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  //mainAxisSize: MainAxisSize.max,
                   children: const [
                     Icon(
                       Icons.edit,
@@ -142,7 +139,6 @@ void escolherOpcao(context, String editarID) {
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  //mainAxisSize: MainAxisSize.max,
                   children: const [
                     Icon(
                       Icons.highlight_remove,
