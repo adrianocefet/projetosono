@@ -21,15 +21,15 @@ class _HomeTabState extends State<HomeTab> {
             height: MediaQuery.of(context).size.height,
             fit: BoxFit.cover,
           ),
-          ImgHospital('HGCC', 0.9),
-          ImgHospital('HGF', 0.3),
-          ImgHospital('HM', -0.3),
-          ImgHospital('HUWC', -0.9),
+          imgHospital('HGCC', 0.9),
+          imgHospital('HGF', 0.3),
+          imgHospital('HM', -0.3),
+          imgHospital('HUWC', -0.9),
         ],
       );
     });
   }
-  Widget ImgHospital(String hospital, double x) {
+  Widget imgHospital(String hospital, double x) {
     return ScopedModelDescendant<UserModel>(builder: (context, child, model){
       return Align(
         alignment: AlignmentDirectional(x, .9),
